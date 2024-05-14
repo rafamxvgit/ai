@@ -32,18 +32,22 @@ class net():
         shapeExpected = (self.LAYERSSIZES[0], 1)
         if (inputShape != (shapeExpected)): raise ValueError(inputErrorMessage.format(shapeExpected, inputShape))
         
+        sigmoid = lambda x: 1/(1+np.exp(x))
+        
         if complete == True:
             layers = [inputLayer]
             for x in range(self.NUMCONECTIONS):
-                newLayer = np.matmul(self.weights[x], layers[-1])+self.offSets[x]
+                newLayer = sigmoid(np.matmul(self.weights[x], layers[-1])+self.offSets[x])
                 layers.append(newLayer)
             return(layers)
         
         else:
             outputLayer = inputLayer
             for x in range(self.NUMCONECTIONS):
-                outputLayer = np.matmul(self.weights[x], outputLayer)+self.offSets[x]
+                outputLayer = sigmoid(np.matmul(self.weights[x], outputLayer)+self.offSets[x])
             return(outputLayer)
 
-
-
+    def cost(self, inputLayer, expectedOutputLayer):
+        netOutput = self.run(inputLayer)
+        if (expectedOutputLayer.shape != netOutput.shape): raise ValueError("tamanho de output incompatível com a rede neural")
+        return(np.sum(np.power(expectedOutputLayer-netOutput, 2)))
