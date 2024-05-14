@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentação do Programa</title>
+    <link rel="stylesheet" href="./docStyle.css">
+</head>
+<body>
+    <header>
+        <h1>
+            Documentação do programa:
+        </h1>
+    </header>
+    <main>
+        <div id="description">
+            <h2>Descrição:</h2>
+            <p>
+                Esse documento tem como objetivo registrar de forma mais organizada a estrutura do projeto
+                e do repositório e, assim, facilitar o desenvolvimento e manutenção no futuro.
+            </p>
+        </div>
+
+        <ol id="ContentTable">
+            <li><a href="#desciption">descrição</a></li>
+            <li><a href="#redeNeural">Estrutura de rede neural</a></li>
+        </ol>
+        
+        <div id="redeNeural">
+            <h3>Rede neural:</h3>
+            <div id="morfologiaRedeNeural">
+                <h4>Morfologia da rede neural:</h4>
+                <p>Nesse projeto, uma rede neural (definida no arquivo "./netStruc.py") é representada por um objeto da classe "net"
+                    e apresenta uma estrutura composta pelos seguintes elementos:
+                </p>
+                
+                <ul>
+                    <li>layers
+                        <ul>
+                            <li>neurons</li>
+                        </ul>                        
+                    </li>
+                    <br>
+                    <li>Conections
+                        <ul>
+                            <li>weights</li>
+                            <li>off-sets</li>
+                        </ul>
+                    </li>
+                </ul>
+                <img id="netImg" src="./assets/nn.svg" alt="imagem de rede neural">
+            </div>
+
+        </div>
+    </main>
+</body>
+
+</html>
